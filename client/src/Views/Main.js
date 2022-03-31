@@ -108,7 +108,6 @@ function App(props) {
                 />
                 <Route exact path="/edit/:identificador" render={
                     (routeprops) => {
-
                         if (seleccionado.nombre !== undefined) {
                             return (
                                 <>
