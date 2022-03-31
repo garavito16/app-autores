@@ -92,7 +92,7 @@ function App(props) {
                 <Route exact path="/new" render={
                     (routeprops) =>
                         <>
-                            <Link onClick={()=>limpiar()} to={"/"}>Home</Link>
+                            <Link onClick={() => limpiar()} to={"/"}>Home</Link>
                             <p>Add a new author : </p>
                             <AutorFormulario
                                 initialNombre=""
@@ -100,27 +100,41 @@ function App(props) {
                                 successCallback={registrarAutor}
                                 errores={errores}
                                 setErrores={setErrores}
-                                limpiar = {limpiar}
+                                limpiar={limpiar}
                                 {...routeprops}
                             />
                         </>
                 }
                 />
                 <Route exact path="/edit/:identificador" render={
-                    (routeprops) =>
-                        <>
-                            <Link onClick={()=>limpiar()} to={"/"}>Home</Link>
-                            <p>Edit this author : </p>
-                            <AutorFormulario
-                                initialNombre={seleccionado.nombre}
-                                initialCita={seleccionado.cita}
-                                successCallback={actualizarAutor}
-                                errores={errores}
-                                setErrores={setErrores}
-                                limpiar = {limpiar}
-                                {...routeprops}
-                            />
-                        </>
+                    (routeprops) => {
+
+                        if (seleccionado.nombre !== undefined) {
+                            return (
+                                <>
+                                    <Link onClick={() => limpiar()} to={"/"}>Home</Link>
+                                    <p>Edit this author : </p>
+                                    <AutorFormulario
+                                        initialNombre={seleccionado.nombre}
+                                        initialCita={seleccionado.cita}
+                                        successCallback={actualizarAutor}
+                                        errores={errores}
+                                        setErrores={setErrores}
+                                        limpiar={limpiar}
+                                        {...routeprops}
+                                    />
+                                </>
+                            )
+                        }
+                        else {
+                            return (
+                                <div>
+                                    <p>Lo sentimos, pero no pudimos encontrar el autor que estás buscando. ¿Deseas agregar este autor a nuestra base de datos?</p>
+                                    <Link to={"/new"}>Add an author</Link>
+                                </div>
+                            )
+                        }
+                    }
                 }
                 />
             </Switch>
