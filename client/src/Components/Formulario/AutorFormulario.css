@@ -1,0 +1,29 @@
+
+.formulario {
+    border: 1px solid black;
+    padding: 0.5em;
+    width: 400px;
+}
+
+.etiqueta {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.ingresa {
+    width: 390px;
+    margin-bottom: 0.5em;
+}
+
+.botones {
+    margin-top: 1.0em;
+    text-align: center;
+}
+
+.btnCancelar {
+    background-color: red;
+}
+
+.btnGuardar {
+    background-color: green;
+}

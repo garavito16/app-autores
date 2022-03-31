@@ -1,0 +1,15 @@
+.btn {
+    padding: 0.5em 1.0em;
+    margin:0.5em;
+}
+.btnEditar{
+    background-color: orange;
+}
+
+.btnEliminar {
+    background-color: red;
+}
+
+.tabla,th,td {
+    border: 1px solid black;
+}
